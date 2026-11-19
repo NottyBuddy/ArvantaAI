@@ -1,0 +1,12 @@
+name = "indiframe-agent-help-desk"
+compatibility_date = "2026-11-17"
+pages_build_output_dir = "./"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "indiframe-agent-help-desk"
+database_id = "f3a1253f-c1d4-4edb-bb6b-af03faef7a6f"
+migrations_dir = "migrations"
+
+[ai]
+binding = "AI"
