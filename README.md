@@ -1,27 +1,24 @@
 # Arvanta · AI Help Desk
 
-A fresh rebuild of the Arvanta AI Help Desk interface based on the supplied Base44 application reference.
+A fresh rebuild of the Arvanta AI Help Desk based on the Base44 interface reference supplied in this project.
 
-## Current UI
-- HRH Next + Arvanta branded header
-- Home dashboard with the same hero layout and six content cards
-- Ask Arvanta page with the supplied introduction, language list and suggested questions
+## Included
+- HRH Next + Arvanta branded header and navigation
+- Home dashboard with six destination cards
+- Ask Arvanta chat UI with the supplied greeting and suggested questions
 - Library, Call Scripts, FAQs, Quick Reference, Brand & Product, and Team Directory sections
 - **No Log a Call / call logging feature**
+- Cloudflare Pages Function at `functions/api/ask.js` for approved-source retrieval and Workers AI answer generation
 
-## Important migration status
-This repository is being rebuilt from the original Base44 app reference. It is **not** a copy of the previous GitHub Help Desk implementation.
+## Migration status
+This repository is **not** a copy of the previous GitHub Help Desk. The frontend was reconstructed from the screenshot and text provided.
 
-The current frontend is a UI foundation. Original Base44 private documents, database records, uploaded files, backend workflows and AI knowledge configuration have not been exported or imported. Content sections remain clearly marked as placeholders until the original source data becomes accessible.
+Original Base44 private documents, database records, uploaded files, workflows and AI knowledge configuration have not been exported or imported. The Library, FAQ, product and team sections are currently placeholders. Arvanta's API only answers from approved documents stored in the configured knowledge store; it refuses to guess when no matching source exists.
 
-## Run
-Open `index.html` in a browser, or deploy the repository as a static site.
+## Hosting
+Deploy on **Cloudflare Pages** with this repository connected, no build command, and repository root as the build output directory. Cloudflare Pages is required for the `functions/api/ask.js` endpoint. GitHub Pages can host only the static frontend and will not execute that API function.
 
-## Next build stages
-1. Import the original Base44 Library documents and records when an export/source becomes available.
-2. Build searchable document and FAQ data views.
-3. Connect Ask Arvanta to an AI endpoint with approved-document retrieval (RAG).
-4. Add the original app's remaining workflows and directory data after source inspection.
-5. Validate the deployed experience against the Base44 reference.
+See [CLOUDFLARE_SETUP.md](CLOUDFLARE_SETUP.md) for Workers AI and KV binding setup, the approved-document format, and verification steps.
 
-Do not add secrets, API keys, customer personal data, or credentials to this repository.
+## Safety
+Never commit API keys, passwords, customer personal data, or other secrets. Only upload exact approved company documents to the knowledge store.
