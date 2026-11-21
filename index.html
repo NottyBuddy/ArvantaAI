@@ -91,6 +91,46 @@ body{background:var(--brand-paper)!important;color:var(--brand-ink)!important}
 .home-note p{margin:0;color:#514b4e;font-size:11px;line-height:1.6}
 .home-note b{color:#17171b}
 @media(max-width:680px){.home-hero{margin:15px 0 23px;padding:30px 22px;min-height:0}.home-grid{grid-template-columns:1fr}.home-section-head h2{font-size:18px}}
+
+/* Ask Arvanta — focused chat experience */
+#ask .chat{max-width:900px;margin:18px auto 28px;padding:clamp(16px,2.5vw,26px);border:1px solid #e4e1dc;border-radius:20px;background:rgba(255,255,255,.82);box-shadow:0 12px 34px rgba(23,23,27,.045)}
+#ask .welcome{display:flex;align-items:flex-start;gap:14px;background:#fff;border:1px solid #e8e5df;border-radius:16px;padding:18px;color:#17171b;line-height:1.6}
+#ask .welcome-mark{flex:0 0 42px;width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#54243b;color:#fff;font-size:20px;font-weight:800}
+#ask .welcome b{font-size:16px;color:#17171b}
+#ask .welcome p{margin:4px 0 7px;color:#343238;font-size:13px}
+#ask .welcome .hint{color:#625d60}
+#ask .suggestions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+#ask .suggestions button{border:1px solid #e2ddd8;background:#faf9f7;border-radius:999px;padding:9px 12px;font-size:12px;line-height:1.35;color:#29252a;cursor:pointer;transition:background .15s,border-color .15s}
+#ask .suggestions button:hover{background:#f3efed;border-color:#c9b9bf}
+#ask .suggestions button:focus-visible,#ask .compose button:focus-visible{outline:2px solid #54243b;outline-offset:2px}
+#ask .chat-messages{display:grid;gap:12px;margin-top:16px}
+#ask .chat-message{max-width:min(88%,760px);padding:12px 15px;border-radius:15px;line-height:1.65;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+#ask .chat-message.user{justify-self:end;background:#54243b;color:#fff;border:1px solid #54243b;border-bottom-right-radius:4px}
+#ask .chat-message.assistant{justify-self:start;background:#f7f6f3;color:#17171b;border:1px solid #e8e5df;border-bottom-left-radius:4px}
+#ask .chat-message.pending{color:#625d60}
+#ask .compose{display:flex;gap:9px;margin-top:16px;padding:7px;border:1px solid #dcd7d2;border-radius:16px;background:#fff}
+#ask .compose input{flex:1;min-width:0;border:0!important;border-radius:10px!important;padding:12px 13px!important;background:transparent;outline:none!important;color:#17171b;font-size:14px}
+#ask .compose input:focus{box-shadow:inset 0 0 0 1px #c9b9bf}
+#ask .compose input::placeholder{color:#777176}
+#ask .compose button{flex:0 0 auto;min-height:42px;padding:0 17px;border-radius:12px;white-space:nowrap}
+#ask .compose button:disabled{opacity:.6;cursor:wait}
+#ask #status{display:block;margin:10px 4px 0;color:#625d60;line-height:1.5}
+#ask .answer-sources{padding-top:10px;border-top:1px solid #e6e1dc}
+#ask .answer-sources>span{color:#4a4247}
+#ask .source-link{border-color:#d8cbd0;background:#fff;color:#54243b}
+#ask .source-link:hover{background:#f5f0f2;border-color:#bca6af}
+#ask .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:600px){
+ #ask .chat{padding:13px;border-radius:15px;margin:12px auto}
+ #ask .welcome{padding:14px;gap:11px}
+ #ask .welcome-mark{flex-basis:36px;width:36px;height:36px}
+ #ask .suggestions{display:grid;grid-template-columns:1fr;gap:7px}
+ #ask .suggestions button{text-align:left;border-radius:11px;padding:10px 12px}
+ #ask .chat-message{max-width:96%;font-size:13px}
+ #ask .compose{gap:6px;padding:5px}
+ #ask .compose input{padding:10px 8px!important;font-size:13px}
+ #ask .compose button{padding:0 11px;font-size:12px}
+}
 </style></head><body>
 <button class="pill" data-view="ask"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.7 8.7 0 0 1-3.5-.7L4 20l1.6-3.6A7 7 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/><path d="m12 7 .8 2.2L15 10l-2.2.8L12 13l-.8-2.2L9 10l2.2-.8Z"/></g></svg></span><span class="nav-label">Ask Arvanta</span></button>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta logo" xmlns="http://www.w3.org/2000/svg"><path d="M24 2.8 44 14.2v19.6L24 45.2 4 33.8V14.2L24 2.8Z" fill="#54243b"/><path d="M13.1 33.1 23.9 11.5l10.9 21.6" fill="none" stroke="#f7f7f5" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.1 25.3h13.7" stroke="#f7f7f5" stroke-width="2.7" stroke-linecap="round"/><path d="M24 11.5v21.6" stroke="#d8cbd0" stroke-width="1.2" opacity=".75"/><circle cx="24" cy="25.3" r="2.2" fill="#f7f7f5"/></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
@@ -126,7 +166,7 @@ body{background:var(--brand-paper)!important;color:var(--brand-ink)!important}
   </div>
   <div class="home-note"><span class="home-note-mark">i</span><p><b>Use approved information.</b> Pricing, warranty, serviceability and technical commitments must follow the latest approved Library documents. If an answer is not confirmed, route it to the appropriate Sales or Technical team.</p></div>
 </section>
-<section class="view" id="ask"><div class="pagehead"><h1>Arvanta · AI Help Desk</h1><p>Ask Arvanta anything. Grounded in IndiFrame's approved SOPs, call scripts, objection bank and FAQ bank.</p></div><div class="panel chat"><div class="welcome"><b>Hi, I'm Arvanta.</b><br>Ask me anything about IndiFrame — pricing, warranty, objections, lead stages, coverage, scripts or the SOPs — in any language you like.<br><span class="hint">English · हिंदी · తెలుగు · मराठी · Hinglish · any language</span></div><h3 style="font-size:13px;margin:18px 0 8px">Shortcuts</h3><div class="suggestions"><button>What is the only price I am allowed to say?</button><button>How do I answer "local fabricators are much cheaper"?</button><button>What do I say if it is a renovation project?</button><button>Which cities do we serve, and what do I do outside coverage?</button><button>What is the warranty, and what must I never promise?</button><button>What stage does "plastering is done" mean for the lead?</button></div><div id="chatMessages" aria-live="polite" style="display:grid;gap:10px;margin-top:12px"></div><form class="compose" id="askForm"><input id="question" placeholder="Ask about pricing, objections, warranty, scripts, coverage…" autocomplete="off"><button class="pill primary">Ask Arvanta →</button></form><div class="hint" id="status">Ask in English, Hinglish, Hindi, Telugu or Marathi. Answers are grounded in approved Library documents.</div></div></section>
+<section class="view" id="ask"><div class="pagehead"><h1>Arvanta · AI Help Desk</h1><p>Ask Arvanta anything. Grounded in IndiFrame's approved SOPs, call scripts, objection bank and FAQ bank.</p></div><div class="panel chat"><div class="welcome"><div class="welcome-mark">A</div><div><b>Hi, I’m Arvanta.</b><p>Ask about IndiFrame pricing, warranty, objections, lead stages, coverage, scripts or SOPs. I’ll answer using approved knowledge.</p><span class="hint">English · हिंदी · తెలుగు · मराठी · Hinglish</span></div></div><h3 style="font-size:13px;margin:18px 0 8px">Shortcuts</h3><div class="suggestions"><button>What is the only price I am allowed to say?</button><button>How do I answer "local fabricators are much cheaper"?</button><button>What do I say if it is a renovation project?</button><button>Which cities do we serve, and what do I do outside coverage?</button><button>What is the warranty, and what must I never promise?</button><button>What stage does "plastering is done" mean for the lead?</button></div><div id="chatMessages" class="chat-messages" aria-live="polite" aria-relevant="additions text"></div><form class="compose" id="askForm"><label class="sr-only" for="question">Your question</label><input id="question" name="question" maxlength="1200" placeholder="Type your question here…" autocomplete="off" aria-describedby="status"><button class="pill primary" type="submit">Ask Arvanta <span aria-hidden="true">→</span></button></form><div class="hint" id="status" role="status" aria-live="polite">Ask in English, Hinglish, Hindi, Telugu or Marathi. Answers are grounded in approved Library documents.</div></div></section>
 <section class="view" id="library"><div class="pagehead"><h1>Knowledge Library</h1><p>Approved source material is organized into searchable working sections.</p></div><div class="panel"><input class="search" id="libSearch" placeholder="Search the knowledge sections…"><div class="list" id="libList"><button data-view="scripts"><b>Call Scripts &amp; Objections</b><span class="hint">Golden rules, discovery, scenarios, renovation rule and ACE objection handling</span></button><button data-view="faqs"><b>FAQ Bank</b><span class="hint">Company, products, pricing, delivery, warranty and process answers</span></button><button data-view="quick"><b>Quick Reference</b><span class="hint">C0/C1/C2/C7 stages, construction readiness, retry policy, centres and glossary</span></button><button data-view="brand"><b>Brand &amp; Product SOP</b><span class="hint">Company story, uPVC, systems, colours, warranty and proof points</span></button><button data-view="team"><b>Team Directory</b><span class="hint">Final approved sales contacts, reporting lines and showroom addresses</span></button></div><p class="hint">Content on these pages is based on the approved Library documents. The final approved sales roster and showroom directory are published here.</p></div></section>
 <section class="view" id="scripts">
 <div class="pagehead"><h1>Complete Call Scripts &amp; Objections</h1><p>Original approved source documents are reproduced in full below. Search works across both complete scripts. Current operating policy takes precedence wherever an older line in a source document conflicts with a later approved update.</p></div>
@@ -3108,18 +3148,20 @@ document.querySelectorAll('.suggestions button').forEach(b=>b.addEventListener('
 const askForm=document.getElementById('askForm');
 askForm.addEventListener('submit',async e=>{
  e.preventDefault();
- const input=document.getElementById('question'),status=document.getElementById('status'),messages=document.getElementById('chatMessages');
+ const input=document.getElementById('question'),status=document.getElementById('status'),messages=document.getElementById('chatMessages'),send=askForm.querySelector('button');
  const question=input.value.trim(); if(!question)return;
- const user=document.createElement('div');user.style.cssText='justify-self:end;max-width:90%;background:#e6f5ff;border:1px solid #cfe8f8;border-radius:14px 14px 3px 14px;padding:11px 14px;line-height:1.5';user.textContent=question;messages.appendChild(user);
- input.value='';input.disabled=true;askForm.querySelector('button').disabled=true;status.textContent='Arvanta approved documents mein answer search kar raha hai…';
- const pending=document.createElement('div');pending.style.cssText='max-width:90%;background:#f7fafc;border:1px solid #e0e8ef;border-radius:14px 14px 14px 3px;padding:11px 14px;color:#60758b';pending.textContent='Searching approved Library…';messages.appendChild(pending);
+ const user=document.createElement('div');user.className='chat-message user';user.textContent=question;messages.appendChild(user);
+ input.value='';input.disabled=true;send.disabled=true;send.textContent='Thinking…';status.textContent='Arvanta approved documents mein answer search kar raha hai…';
+ const pending=document.createElement('div');pending.className='chat-message assistant pending';pending.textContent='Searching approved Library…';messages.appendChild(pending);pending.scrollIntoView({block:'nearest',behavior:'smooth'});
  try{
   const response=await fetch('/api/ask',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({question})});
-  const data=await response.json();pending.textContent=data.answer||data.message||'Response unavailable.';
+  let data={};try{data=await response.json()}catch{}
+  pending.classList.remove('pending');
+  pending.textContent=data.answer||data.message||(response.ok?'Response unavailable.':'Request failed. Please try again.');
   if(Array.isArray(data.sources)&&data.sources.length){const src=document.createElement('div');src.className='answer-sources';const label=document.createElement('span');label.textContent='Sources';src.appendChild(label);data.sources.forEach(source=>{const title=source.title||'Approved Library source';const btn=document.createElement('button');btn.type='button';btn.className='source-link';btn.textContent='↗ '+title;btn.title='Open this approved source in the Library';btn.addEventListener('click',()=>openSource(title,source.section||''));src.appendChild(btn)});pending.appendChild(src)}
-  status.textContent=response.ok?'Answer generated from approved source excerpts.':'AI service setup needs attention.';
- }catch{pending.textContent='Arvanta service tak connect nahi ho paaya. Please retry.';status.textContent='Connection error.'}
- finally{input.disabled=false;askForm.querySelector('button').disabled=false;input.focus()}
+  status.textContent=response.ok?'Answer generated from approved source excerpts.':(data.error==='service_not_configured'?'AI service configuration needs attention.':'Answer request failed. Please check the message above and retry.');
+ }catch{pending.classList.remove('pending');pending.textContent='Arvanta service tak connect nahi ho paaya. Please retry.';status.textContent='Connection error. Check your connection and try again.'}
+ finally{input.disabled=false;send.disabled=false;send.innerHTML='Ask Arvanta <span aria-hidden="true">→</span>';input.focus()}
 });
 document.getElementById('libSearch').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('#libList button').forEach(b=>b.style.display=b.textContent.toLowerCase().includes(q)?'block':'none')});
 function bindSearch(inputId, containerId, selector){const input=document.getElementById(inputId),root=document.getElementById(containerId);if(!input||!root)return;input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();root.querySelectorAll(selector).forEach(el=>{el.style.display=!q||el.textContent.toLowerCase().includes(q)?'':'none'})})}
