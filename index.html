@@ -512,6 +512,85 @@ button,button:hover,button:focus,button:active{
 #scripts .script-reader-content{max-width:1100px;margin:0 auto;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;background:transparent;border:0;padding:8px 0;color:#252126;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
 @media(max-width:700px){#scripts .scripts-list{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}#scripts .script-document>summary{min-height:92px;padding:17px 14px!important}#scripts .script-reader{padding:20px 16px 40px}}
 
+
+/* Premium workspace visual system — visual layer only; app logic and data remain untouched */
+:root{
+ --ink:#17171b!important;--blue:#54243b!important;--sky:#f0e9ec!important;
+ --line:#e4dfdc!important;--muted:#6b6267!important;--copper:#54243b!important;
+ --workspace:#f7f7f5;--pearl:#e8e6e1;--wine:#54243b;--soft-wine:#f2eaed;
+}
+html{background:var(--workspace)}
+body{font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif!important;color:#17171b!important;background:#f7f7f5!important}
+.top{height:66px!important;background:rgba(247,247,245,.94)!important;border-bottom:1px solid #e8e3df!important;backdrop-filter:blur(16px);padding-left:270px!important}
+.navwrap{width:240px!important;background:#e8e6e1!important;border-right:1px solid #d9d5cf!important;padding:22px 16px 16px!important}
+.sidebar-brand{padding:7px 9px 22px!important;margin-bottom:20px!important;border-color:#d7d2cb!important}
+.brand-mark{border-radius:12px!important}
+.nav{gap:5px!important;overflow-y:auto}
+.nav .pill{min-height:44px!important;padding:10px 13px!important;border-radius:11px!important;color:#393238!important;font-weight:600!important}
+.nav .pill .nav-icon{width:21px;height:21px;display:grid;place-items:center;flex:none}
+.nav .pill .nav-icon svg{width:19px;height:19px}
+.nav .active{background:#54243b!important;color:#fff!important;border-color:#54243b!important}
+.sidebar-foot{border-color:#d7d2cb!important;color:#766d70!important;font-size:8px!important}
+.collapse-toggle{border:1px solid #d7d2cb!important;background:transparent!important;border-radius:11px!important}
+main{width:calc(100% - 240px)!important;margin-left:240px!important;max-width:1440px!important;padding:0 clamp(22px,3.4vw,54px) 68px!important}
+.view{min-height:calc(100vh - 66px)}
+.home-hero{position:relative!important;min-height:290px!important;margin:0 -1px 38px!important;padding:55px clamp(22px,5vw,70px)!important;border:1px solid #e6e0dc!important;border-top:0!important;border-radius:0 0 25px 25px!important;background:linear-gradient(130deg,#fff 0%,#faf8f7 55%,#f1e9ec 100%)!important;text-align:left!important;display:flex!important;align-items:flex-start!important;justify-content:center!important;flex-direction:column!important;overflow:hidden}
+.home-hero:after{content:"";position:absolute;width:290px;height:290px;right:7%;top:-100px;border:1px solid #e6dce0;border-radius:50%;box-shadow:0 0 0 28px #54243b05,0 0 0 58px #54243b04;pointer-events:none}
+.home-eyebrow,.home-kicker{font-size:10px!important;letter-spacing:2px!important;font-weight:800!important;color:#54243b!important}
+.home-hero h1{max-width:720px!important;font-size:clamp(30px,4vw,47px)!important;line-height:1.08!important;letter-spacing:-1.8px!important;color:#17171b!important;margin:13px 0 12px!important}
+.home-hero p{max-width:590px!important;color:#625b60!important;font-size:14px!important;line-height:1.75!important;margin:0 0 20px!important}
+.home-primary{border:0!important;border-radius:999px!important;background:#54243b!important;color:white!important;padding:12px 20px!important;font-weight:700!important}
+.home-section-head{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;margin:0 0 16px!important}
+.home-section-head h2{font-size:22px!important;letter-spacing:-.6px!important;margin:6px 0!important;color:#17171b!important}
+.home-section-head p{font-size:12px!important;color:#71686d!important;margin:0!important}
+.home-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0 38px!important;margin:16px 0 32px!important}
+.home-card{min-height:94px!important;padding:18px 10px!important;border-bottom:1px solid #e4dfdc!important;grid-template-columns:36px minmax(0,1fr) auto!important}
+.home-card-icon{width:32px!important;height:32px!important;border-radius:10px!important;background:#f0e8eb!important;color:#54243b!important;font-size:10px!important;font-weight:800!important}
+.home-card b{font-size:14px!important;letter-spacing:-.1px!important}
+.home-card small{font-size:11px!important;color:#746b70!important;line-height:1.55!important}
+.home-arrow{font-size:18px!important}
+.pagehead{padding:38px 0 22px!important}
+.pagehead h1{font-size:clamp(25px,3vw,34px)!important;letter-spacing:-1.1px!important;color:#17171b!important}
+.pagehead p{font-size:13px!important;color:#71686d!important}
+.panel{background:#fff!important;border:1px solid #e7e1dd!important;border-radius:18px!important;padding:clamp(18px,2.5vw,28px)!important;box-shadow:0 8px 28px #2b172008!important}
+.search,.compose input{border:1px solid #ddd5d8!important;background:#fff!important;color:#17171b!important;border-radius:13px!important;outline-color:#54243b!important;padding:13px 16px!important}
+.compose button,.pill.primary{background:#54243b!important;color:#fff!important;border-color:#54243b!important;border-radius:13px!important}
+.welcome{background:#f5eff1!important;border:1px solid #e9dce1!important;border-radius:15px!important;color:#332b30!important;padding:19px!important}
+.suggestions button{background:#fff!important;border:1px solid #e4dadd!important;border-radius:999px!important;color:#54243b!important;padding:9px 13px!important}
+.chat{max-width:850px!important}
+#scripts .scripts-list{gap:16px!important}
+#scripts .script-document>summary{min-height:132px!important;padding:24px!important;border:1px solid #e5ddd6!important;border-radius:17px!important;background:#fff!important}
+#scripts .script-summary-title b{font-size:16px!important}
+#scripts .script-document>summary:after{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#f2eaed;font-size:17px}
+#faqs .faq-panel,#quick .quick-panel,#brand .brand-panel{padding:0!important}
+#faqs .faq-list details,#quick .quick-topic-list details,#brand .brand-list details{padding:14px 0!important;border-bottom:1px solid #e6e0dc!important}
+#faqs .faq-list details>summary,#quick .quick-topic-list summary,#brand .brand-list summary{padding:10px 0!important;font-weight:650!important;color:#292329!important}
+#faqs .faq-list details p,#brand .brand-list details>p{line-height:1.75!important;color:#5f565c!important}
+#team .team-directory-table{border-collapse:separate!important;border-spacing:0!important}
+#team .team-directory-table th{background:#f1ecee!important;color:#54243b!important;font-size:10px!important;letter-spacing:.7px!important;text-transform:uppercase!important;padding:13px 10px!important}
+#team .team-directory-table td{padding:13px 10px!important;border-bottom:1px solid #e9e4e0!important;color:#393238!important;font-size:12px!important}
+#team .team-directory-table tr:last-child td{border-bottom:0!important}
+.script-reader{background:#f7f7f5!important}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #54243b!important;outline-offset:3px!important}
+@media(max-width:900px){
+ .navwrap{width:76px!important;padding:18px 10px!important}
+ .sidebar-brand{display:flex!important;justify-content:center!important;padding:6px 0 18px!important}
+ .brand-copy,.brand-divider,.arvanta-wordmark,.nav-label,.sidebar-foot,.collapse-label{display:none!important}
+ .nav .pill{justify-content:center!important;padding:12px 8px!important}
+ .nav .pill .nav-icon{width:24px;height:24px}
+ .collapse-toggle{justify-content:center!important;padding:10px 5px!important}
+ main{width:calc(100% - 76px)!important;margin-left:76px!important;padding-left:22px!important;padding-right:22px!important}
+ .top{padding-left:96px!important}
+}
+@media(max-width:620px){
+ .home-hero{min-height:260px!important;padding:38px 22px!important;margin-bottom:28px!important}
+ .home-hero:after{right:-170px;opacity:.5}
+ .home-grid{grid-template-columns:1fr!important;gap:0!important}
+ .home-section-head h2{font-size:19px!important}
+ .pagehead{padding-top:28px!important}
+ .panel{padding:16px!important}
+}
+
 </style></head><body>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
 <button class="pill active" data-view="home"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></g></svg></span><span class="nav-label">Home</span></button>
