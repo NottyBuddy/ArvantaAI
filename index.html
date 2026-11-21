@@ -644,6 +644,31 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #54
  #faqs .faq-list details,#quick .quick-topic-list details,#brand .brand-list details{padding:11px!important}
 }
 
+
+/* Hand-drawn inline icon system for workspace cards and disclosure controls */
+.home-card-icon{display:grid!important;place-items:center!important}
+.home-card-icon svg{display:block;width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+#faqs .faq-list summary:after,#quick .quick-topic-list summary:after,
+#brand .brand-list summary:after,#team .team-list summary:after{
+ content:""!important;display:block!important;flex:0 0 9px!important;width:9px!important;height:9px!important;
+ border-right:1.8px solid #54243b!important;border-bottom:1.8px solid #54243b!important;
+ background:transparent!important;border-radius:0!important;transform:rotate(45deg)!important;
+ margin:0 5px 5px 12px!important;transition:transform .16s ease!important;
+}
+#faqs .faq-list details[open]>summary:after,#quick .quick-topic-list details[open]>summary:after,
+#brand .brand-list details[open]>summary:after,#team .team-list details[open]>summary:after{
+ transform:rotate(225deg)!important;margin-bottom:-4px!important
+}
+#faqs .faq-list summary,#quick .quick-topic-list summary,#brand .brand-list summary,#team .team-list summary{
+ cursor:pointer!important;user-select:none!important;min-height:42px!important
+}
+#scripts .script-document>summary:after{
+ content:""!important;width:10px!important;height:10px!important;display:block!important;
+ border-top:1.8px solid #54243b!important;border-right:1.8px solid #54243b!important;
+ background:transparent!important;border-radius:0!important;transform:rotate(45deg)!important;
+}
+#team .team-directory-section>summary:after{margin-left:auto!important}
+
 </style></head><body>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
 <button class="pill active" data-view="home"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></g></svg></span><span class="nav-label">Home</span></button>
@@ -669,11 +694,11 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #54
   </div>
   <div class="home-section-head"><div><span class="home-kicker">WORKSPACE</span><h2>Go to a section</h2><p>Open the information you need, without duplicate navigation.</p></div></div>
   <div class="home-grid">
-    <button class="home-card" type="button" data-view="scripts"><span class="home-card-icon">01</span><span><b>Call Scripts</b><small>Approved scripts, scenarios and objection handling</small></span><span class="home-arrow">↗</span></button>
-    <button class="home-card" type="button" data-view="faqs"><span class="home-card-icon">02</span><span><b>FAQ Bank</b><small>Customer questions and approved responses</small></span><span class="home-arrow">↗</span></button>
-    <button class="home-card" type="button" data-view="quick"><span class="home-card-icon">03</span><span><b>Quick Reference</b><small>Lead stages, retry cadence and key process rules</small></span><span class="home-arrow">↗</span></button>
-    <button class="home-card" type="button" data-view="brand"><span class="home-card-icon">04</span><span><b>Brand &amp; Product</b><small>Product knowledge, positioning and approved claims</small></span><span class="home-arrow">↗</span></button>
-    <button class="home-card" type="button" data-view="team"><span class="home-card-icon">05</span><span><b>Team Directory</b><small>Approved contacts, reporting lines and locations</small></span><span class="home-arrow">↗</span></button>
+    <button class="home-card" type="button" data-view="scripts"><span class="home-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4V20H6z"/><path d="M14 3.5V8h4M9 12h6M9 16h6"/></svg></span><span><b>Call Scripts</b><small>Approved scripts, scenarios and objection handling</small></span><span class="home-arrow">↗</span></button>
+    <button class="home-card" type="button" data-view="faqs"><span class="home-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.4 2.4 0 1 1 4.2 1.6c-1.1 1-1.9 1.4-1.9 2.9M12 17.2h.01"/></svg></span><span><b>FAQ Bank</b><small>Customer questions and approved responses</small></span><span class="home-arrow">↗</span></button>
+    <button class="home-card" type="button" data-view="quick"><span class="home-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.5V12l4 2.5"/></svg></span><span><b>Quick Reference</b><small>Lead stages, retry cadence and key process rules</small></span><span class="home-arrow">↗</span></button>
+    <button class="home-card" type="button" data-view="brand"><span class="home-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 9h16M9 9v11M13 13h4M13 16.5h4"/></svg></span><span><b>Brand &amp; Product</b><small>Product knowledge, positioning and approved claims</small></span><span class="home-arrow">↗</span></button>
+    <button class="home-card" type="button" data-view="team"><span class="home-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20v-1.5A4.5 4.5 0 0 1 7.5 14h3a4.5 4.5 0 0 1 4.5 4.5V20M16 5.2a3.2 3.2 0 0 1 0 6.1M17 14.5a4.3 4.3 0 0 1 4 4.3V20"/></svg></span><span><b>Team Directory</b><small>Approved contacts, reporting lines and locations</small></span><span class="home-arrow">↗</span></button>
     
   </div>
   <div class="home-note"><span class="home-note-mark">i</span><p><b>Use approved information.</b> Pricing, warranty, serviceability and technical commitments must follow the latest approved Library documents. If an answer is not confirmed, route it to the appropriate Sales or Technical team.</p></div>
@@ -3702,5 +3727,21 @@ askForm.addEventListener('submit',async e=>{
 const librarySearch=document.getElementById('libSearch');if(librarySearch){const libraryCards=[...document.querySelectorAll('#libList button')],libraryCount=document.getElementById('libraryCount'),libraryEmpty=document.getElementById('libraryEmpty');librarySearch.addEventListener('input',()=>{const q=librarySearch.value.toLowerCase().trim();let visible=0;libraryCards.forEach(card=>{const match=card.textContent.toLowerCase().includes(q);card.hidden=!match;if(match)visible++});libraryCount.textContent=visible+' of '+libraryCards.length+' collections';libraryEmpty.hidden=visible!==0})}
 function bindSearch(inputId, containerId, selector){const input=document.getElementById(inputId),root=document.getElementById(containerId);if(!input||!root)return;input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();root.querySelectorAll(selector).forEach(el=>{el.style.display=!q||el.textContent.toLowerCase().includes(q)?'':'none'})})}
 const scriptSearch=document.getElementById('scriptSearch');if(scriptSearch){const scriptDocs=[...document.querySelectorAll('#scriptList details')],scriptCount=document.getElementById('scriptCount'),reader=document.getElementById('scriptReader'),readerTitle=document.getElementById('scriptReaderTitle'),readerMeta=document.getElementById('scriptReaderMeta'),readerContent=document.getElementById('scriptReaderContent'),readerBack=document.getElementById('scriptReaderBack');scriptSearch.addEventListener('input',()=>{const q=scriptSearch.value.toLowerCase().trim();let visible=0;scriptDocs.forEach(doc=>{const match=!q||doc.textContent.toLowerCase().includes(q);doc.hidden=!match;doc.open=false;if(match)visible++});scriptCount.textContent=visible+' of '+scriptDocs.length+' documents'});scriptDocs.forEach(doc=>{const summary=doc.querySelector(':scope > summary');summary?.addEventListener('click',event=>{event.preventDefault();const title=summary.querySelector('b')?.textContent||'Call Script',meta=summary.querySelector('small')?.textContent||'';readerTitle.textContent=title;readerMeta.textContent=meta;readerContent.textContent=doc.querySelector('.script-source')?.textContent||'';reader.hidden=false;document.body.style.overflow='hidden';reader.scrollTop=0;readerBack.focus()})});const closeReader=()=>{reader.hidden=true;document.body.style.overflow='';};readerBack?.addEventListener('click',closeReader);document.addEventListener('keydown',event=>{if(event.key==='Escape'&&reader&&!reader.hidden)closeReader()})}const faqSearch=document.getElementById('faqSearch');if(faqSearch){const faqItems=[...document.querySelectorAll('#faqList details')],faqCount=document.getElementById('faqCount'),faqEmpty=document.getElementById('faqEmpty');faqCount.textContent=faqItems.length+' answers';faqSearch.addEventListener('input',()=>{const q=faqSearch.value.toLowerCase().trim();let visible=0;faqItems.forEach(item=>{const match=!q||item.textContent.toLowerCase().includes(q);item.hidden=!match;if(match){visible++;if(q)item.open=true}else item.open=false});faqCount.textContent=visible+' of '+faqItems.length+' answers';faqEmpty.hidden=visible!==0})}const quickSearch=document.getElementById('quickSearch');if(quickSearch){const quickCards=[...document.querySelectorAll('#quickCards .quick-stage')],quickItems=[...document.querySelectorAll('#quickList details')],quickCount=document.getElementById('quickCount'),quickEmpty=document.getElementById('quickEmpty');const updateQuickCount=()=>{const stages=quickCards.filter(x=>!x.hidden).length,topics=quickItems.filter(x=>!x.hidden).length;quickCount.textContent=stages+' lead stages · '+topics+' reference topics';quickEmpty.hidden=stages+topics!==0};quickSearch.addEventListener('input',()=>{const q=quickSearch.value.toLowerCase().trim();quickCards.forEach(x=>x.hidden=!!q&&!x.textContent.toLowerCase().includes(q));quickItems.forEach(x=>{const match=!q||x.textContent.toLowerCase().includes(q);x.hidden=!match;if(q&&match)x.open=true;if(!match)x.open=false});updateQuickCount()});updateQuickCount()}const brandSearch=document.getElementById('brandSearch');if(brandSearch){const brandItems=[...document.querySelectorAll('#brandList details')],brandCount=document.getElementById('brandCount'),brandEmpty=document.getElementById('brandEmpty');brandCount.textContent=brandItems.length+' reference topics';brandSearch.addEventListener('input',()=>{const q=brandSearch.value.toLowerCase().trim();let visible=0;brandItems.forEach(item=>{const match=!q||item.textContent.toLowerCase().includes(q);item.hidden=!match;if(match){visible++;if(q)item.open=true}else item.open=false});brandCount.textContent=visible+' of '+brandItems.length+' topics';brandEmpty.hidden=visible!==0})}const teamSearch=document.getElementById('teamSearch');if(teamSearch){const teamSections=[...document.querySelectorAll('#teamList > details')],teamRows=[...document.querySelectorAll('.team-directory-table tbody tr')],teamCount=document.getElementById('teamCount'),teamEmpty=document.getElementById('teamEmpty');const updateTeamCount=()=>{const visibleRows=teamRows.filter(row=>!row.hidden).length,visibleSections=teamSections.filter(section=>!section.hidden).length;const visibleLocations=teamSections[1]&&!teamSections[1].hidden?[...teamSections[1].querySelectorAll('.team-location-card')].filter(card=>!card.hidden).length:0;teamCount.textContent=visibleRows+' contacts · '+visibleLocations+' locations';teamEmpty.hidden=visibleSections!==0};teamSearch.addEventListener('input',()=>{const q=teamSearch.value.toLowerCase().trim();teamSections.forEach(section=>{const rows=[...section.querySelectorAll('tbody tr')];if(rows.length){let matches=0;rows.forEach(row=>{const match=!q||row.textContent.toLowerCase().includes(q);row.hidden=!match;if(match)matches++});section.hidden=matches===0}else{const cards=[...section.querySelectorAll('.team-location-card')];if(cards.length){let matches=0;cards.forEach(card=>{const match=!q||card.textContent.toLowerCase().includes(q);card.hidden=!match;if(match)matches++});section.hidden=matches===0}else{const match=!q||section.textContent.toLowerCase().includes(q);section.hidden=!match}}});updateTeamCount()});updateTeamCount()}
+
+
+/* Reliable disclosure toggling: one controlled click path for every native details section */
+document.addEventListener('click',event=>{
+ const summary=event.target.closest('summary');
+ if(!summary||summary.closest('.script-document'))return;
+ const details=summary.parentElement;
+ if(!(details instanceof HTMLDetailsElement))return;
+ event.preventDefault();
+ details.open=!details.open;
+});
+document.querySelectorAll('details > summary').forEach(summary=>{
+ const details=summary.parentElement;
+ summary.setAttribute('aria-expanded',String(details.open));
+ details.addEventListener('toggle',()=>summary.setAttribute('aria-expanded',String(details.open)));
+});
 
 </script></body></html>
