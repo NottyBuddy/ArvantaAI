@@ -382,6 +382,41 @@ button:hover{filter:none!important;transform:none!important}
 .home-primary,.home-secondary{color:#520d27!important;padding:9px 0!important}
 @media(max-width:700px){.home-grid{grid-template-columns:1fr!important;gap:4px!important}}
 
+
+/* Scripts page: full-width fit matching the Team Directory content layout */
+#scripts{width:100%;min-width:0}
+#scripts .scripts-panel{width:100%;max-width:100%;min-width:0;padding:0!important;margin:0;overflow:visible;background:transparent!important;border:0!important;box-shadow:none!important}
+#scripts .scripts-policy{width:100%;max-width:100%;background:transparent!important;border:0!important;border-radius:0!important;padding:10px 0!important;margin:0 0 12px!important}
+#scripts .scripts-searchbar{width:100%;min-width:0;display:flex;align-items:center;gap:12px}
+#scripts .scripts-searchbar .search{width:100%;min-width:0}
+#scripts .scripts-list{width:100%;min-width:0;display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+#scripts .script-document{width:100%;max-width:100%;min-width:0;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible}
+#scripts .script-document>summary{width:100%;min-width:0;background:transparent!important;border:0!important;border-bottom:1px solid #e8e2dc!important;border-radius:0!important;padding:15px 0!important}
+#scripts .script-document[open]>summary{border-bottom:1px solid #e8e2dc!important}
+#scripts .script-source{display:block;width:100%;max-width:100%;min-width:0;white-space:pre-wrap!important;overflow-wrap:anywhere!important;word-break:normal!important;overflow-x:hidden!important;overflow-y:auto!important;max-height:72vh;margin:12px 0!important;padding:14px 0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;font-size:clamp(10px,.78vw,12px)!important;line-height:1.55!important}
+#scripts .script-summary-title,#scripts .script-summary-title b,#scripts .script-summary-title small{min-width:0;overflow-wrap:anywhere}
+@media(max-width:700px){
+ #scripts .scripts-searchbar{align-items:stretch;flex-direction:column;gap:8px}
+ #scripts .scripts-count{align-self:flex-start}
+ #scripts .script-document>summary{padding:13px 0!important}
+ #scripts .script-source{max-height:68vh;padding:10px 0!important;font-size:10px!important}
+}
+/* Remove hover-only visual changes throughout the site; retain normal click behaviour */
+*:hover{transition:none!important;transform:none!important;filter:none!important;box-shadow:none!important;text-decoration:none!important}
+button:hover,button:focus,button:active,
+a:hover,a:focus,.pill:hover,.nav .pill:hover,
+.card:hover,.home-card:hover,.library-list button:hover,
+.script-document summary:hover,.faq-list summary:hover,
+.brand-list summary:hover,.team-directory-section>summary:hover,
+.quick-topic-list summary:hover,.source-link:hover{
+ background:transparent!important;background-color:transparent!important;
+ border-color:inherit!important;color:inherit!important;
+}
+button,button:hover,button:focus,button:active{
+ background:transparent!important;background-color:transparent!important;
+ box-shadow:none!important;filter:none!important;transform:none!important;
+}
+
 </style></head><body>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
 <button class="pill active" data-view="home"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></g></svg></span><span class="nav-label">Home</span></button>
