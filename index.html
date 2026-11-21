@@ -3830,3 +3830,26 @@ document.querySelectorAll('details > summary').forEach(summary=>{
 /* Restore the dedicated collapse/expand control at the bottom of the sidebar. */
 .brand-mark{cursor:default}
 .sidebar-bottom .collapse-toggle{display:flex!important}
+
+/* Replace the tiny arrow-only strip with the proper bottom Collapse/Expand button. */
+.sidebar-bottom .collapse-toggle{
+ width:100%!important;height:auto!important;min-width:0!important;
+ margin:8px 0 0!important;padding:10px 12px!important;
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+ gap:11px!important;border:1px solid #d2cfc8!important;border-radius:9px!important;
+ background:#f3f1ed!important;box-shadow:none!important;font-size:11px!important;
+}
+.sidebar-bottom .collapse-label{display:inline!important;font-size:11px!important;white-space:nowrap!important}
+.sidebar-bottom .collapse-chevron{
+ display:inline-block!important;flex:0 0 8px!important;width:8px!important;height:8px!important;
+ border-right:1.8px solid #54243b!important;border-bottom:1.8px solid #54243b!important;
+ border-left:0!important;border-top:0!important;font-size:0!important;line-height:0!important;
+ transform:rotate(135deg)!important;
+}
+body.sidebar-collapsed .sidebar-bottom .collapse-toggle{
+ width:42px!important;height:42px!important;min-width:42px!important;
+ margin:8px auto 0!important;padding:0!important;justify-content:center!important;
+}
+body.sidebar-collapsed .sidebar-bottom .collapse-label{display:none!important}
+body.sidebar-collapsed .sidebar-bottom .collapse-chevron{transform:rotate(-45deg)!important}
+@media(max-width:680px){.sidebar-bottom{display:none!important}}
