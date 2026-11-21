@@ -283,6 +283,51 @@ button,.pill{box-shadow:none}
  border-radius:0!important;
 }
 
+
+/* Minimal transparent surfaces across every card and content panel */
+.card,.home-card,.panel,.library-card,.team-location-card,
+.team-directory-section,.team-table-wrap,.welcome,.quick-card,
+.brand-card,.faq-card,.script-card{
+ background:transparent!important;
+ border:0!important;
+ box-shadow:none!important;
+}
+.card:hover,.home-card:hover,.library-card:hover,.team-location-card:hover{
+ background:transparent!important;border:0!important;box-shadow:none!important;transform:none!important;
+}
+.team-directory-section>summary,
+.team-directory-section[open]>summary,
+.team-section-note,
+.team-location-grid,
+.team-location-card,
+.team-table-caption{
+ background:transparent!important;border:0!important;box-shadow:none!important;
+}
+.team-panel{width:100%!important;max-width:100%!important;min-width:0!important;padding:0!important;overflow:visible!important}
+.team-table-wrap{width:100%!important;max-width:100%!important;min-width:0!important;margin:10px 0 14px!important;overflow-x:hidden!important;overflow-y:auto!important;max-height:72vh!important;border-radius:0!important}
+.team-directory-table{width:100%!important;min-width:0!important;max-width:100%!important;table-layout:fixed!important;border:0!important;border-collapse:collapse!important;font-size:clamp(8px,.72vw,10.5px)!important;background:transparent!important}
+.team-directory-table th,.team-directory-table td{width:auto!important;padding:8px 6px!important;white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important;border:0!important;text-align:left!important}
+.team-directory-table th{background:transparent!important;color:#520D27!important;border-bottom:1px solid #d8cfc8!important;font-size:9px!important}
+.team-directory-table td{background:transparent!important;color:#17171b!important;border-bottom:1px solid #e9e2da!important}
+.team-directory-table tbody tr:nth-child(even),.team-directory-table tbody tr:hover{background:transparent!important}
+.team-directory-table td a{white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+.team-directory-table td:last-child,.team-directory-table th:last-child{border-right:0!important}
+.team-directory-table tbody tr:last-child td{border-bottom:0!important}
+.team-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.team-directory-section>summary{padding:12px 0!important}
+.team-location-grid{padding:12px 0!important;grid-template-columns:repeat(2,minmax(0,1fr))}
+.team-note{border:0!important;padding-top:8px!important}
+@media(max-width:900px){
+ .team-directory-table{font-size:9px!important}
+ .team-directory-table th,.team-directory-table td{padding:6px 4px!important}
+}
+@media(max-width:600px){
+ .team-directory-table{font-size:8px!important}
+ .team-directory-table th,.team-directory-table td{padding:5px 3px!important}
+ .team-toolbar{display:block}
+ .team-location-grid{grid-template-columns:1fr}
+}
+
 </style></head><body>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
 <button class="pill active" data-view="home"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></g></svg></span><span class="nav-label">Home</span></button>
