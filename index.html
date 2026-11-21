@@ -591,6 +591,59 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #54
  .panel{padding:16px!important}
 }
 
+
+/* Second-pass polish: stronger hierarchy, deliberate surfaces and clearer module navigation */
+.top{background:#f7f7f5!important;box-shadow:0 1px 0 #e8e2de!important}
+.navwrap{box-shadow:8px 0 28px #24131b08!important}
+.nav .pill{position:relative!important;letter-spacing:.05px!important}
+.nav .pill.active{box-shadow:inset 3px 0 0 #d7b8c4!important}
+.home-hero{min-height:320px!important;padding-top:62px!important;padding-bottom:58px!important;background:linear-gradient(112deg,#fff 0%,#fbf9f8 58%,#f0e7eb 100%)!important}
+.home-hero:before{content:"";position:absolute;right:10%;bottom:-115px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,#54243b12 0%,#54243b04 58%,transparent 70%);pointer-events:none}
+.home-eyebrow{display:inline-flex!important;align-items:center!important;gap:9px!important;padding:7px 11px!important;border:1px solid #e8dce1!important;border-radius:999px!important;background:#fff9!important}
+.home-eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:#54243b}
+.home-hero h1{max-width:700px!important;font-size:clamp(33px,4.3vw,50px)!important;line-height:1.06!important}
+.home-hero p{font-size:14px!important;max-width:570px!important}
+.home-section-head{margin-top:4px!important;margin-bottom:18px!important}
+.home-section-head h2{font-size:24px!important}
+.home-grid{gap:13px!important;margin-top:18px!important}
+.home-card{position:relative!important;min-height:104px!important;padding:18px 17px!important;border:1px solid #e8e2de!important;border-radius:15px!important;background:#fff!important;grid-template-columns:38px minmax(0,1fr) auto!important}
+.home-card-icon{width:34px!important;height:34px!important;background:#f3ecef!important;border:1px solid #eee2e7!important}
+.home-card b{font-size:14px!important}
+.home-card small{max-width:310px!important}
+.home-arrow{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#f6f1f3!important}
+.pagehead{position:relative!important;margin-bottom:5px!important}
+.pagehead:after{content:"";display:block;width:42px;height:3px;border-radius:5px;background:#54243b;margin-top:16px}
+.panel{border-radius:18px!important}
+.scripts-policy{border:1px solid #eadfe3!important;border-radius:14px!important;background:#f4eef1!important;padding:15px 17px!important}
+#scripts .script-document>summary{position:relative!important;min-height:142px!important;border-radius:16px!important;background:linear-gradient(135deg,#fff,#fcfafb)!important}
+#scripts .script-document>summary:before{content:"";position:absolute;left:0;top:19px;bottom:19px;width:3px;border-radius:0 4px 4px 0;background:#54243b}
+#scripts .script-summary-title{padding-left:8px!important}
+#scripts .script-open-label{padding:7px 10px!important;border-radius:999px!important;background:#f3ecef!important}
+#faqs .faq-list details,#quick .quick-topic-list details,#brand .brand-list details{padding:12px 15px!important;margin:0 0 8px!important;border:1px solid #e9e3df!important;border-radius:13px!important;background:#fff!important}
+#faqs .faq-list details>summary,#quick .quick-topic-list summary,#brand .brand-list summary{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important}
+#faqs .faq-list details[open],#quick .quick-topic-list details[open],#brand .brand-list details[open]{background:#fff!important;border-color:#dfd0d6!important}
+#faqs .faq-list details p,#brand .brand-list details>p{padding:10px 0 3px!important}
+#quick .quick-reference-table{border-collapse:separate!important;border-spacing:0!important;border:1px solid #e8e2de!important;border-radius:13px!important;overflow:hidden!important}
+#quick .quick-reference-table th{background:#f2ecef!important;color:#54243b!important;padding:12px!important}
+#quick .quick-reference-table td{padding:12px!important;border-bottom:1px solid #eee9e5!important}
+#team .team-directory-table{border:1px solid #e8e2de!important;border-radius:14px!important;overflow:hidden!important}
+#team .team-directory-table th:first-child{border-radius:12px 0 0 0}
+#team .team-directory-table th:last-child{border-radius:0 12px 0 0}
+#team .team-directory-table tbody tr:nth-child(even) td{background:#fcfbfa!important}
+#team .team-directory-table td:first-child{font-weight:650!important;color:#30232a!important}
+#ask .welcome{position:relative!important}
+#ask .compose{padding:7px!important;border:1px solid #e6dce0!important;border-radius:17px!important;background:#fff!important;box-shadow:0 5px 20px #28131d08!important}
+#ask .compose input{border:0!important;box-shadow:none!important}
+#ask .compose button{min-height:42px!important;padding:0 19px!important;border-radius:12px!important}
+.scripts-count,.library-total,.quick-count,.brand-count,.team-count{border:1px solid #eadfe3!important;background:#f4eef1!important;color:#54243b!important;border-radius:999px!important;padding:7px 11px!important}
+@media(max-width:700px){
+ .home-hero{min-height:280px!important;padding:42px 22px!important}
+ .home-grid{grid-template-columns:1fr!important;gap:10px!important}
+ .home-card{min-height:88px!important}
+ #scripts .scripts-list{gap:11px!important}
+ #faqs .faq-list details,#quick .quick-topic-list details,#brand .brand-list details{padding:11px!important}
+}
+
 </style></head><body>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
 <button class="pill active" data-view="home"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></g></svg></span><span class="nav-label">Home</span></button>
