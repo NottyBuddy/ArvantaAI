@@ -165,6 +165,67 @@ table td a{color:#54243b}
 footer{color:#555158!important}footer b{color:#54243b!important}
 :focus-visible{outline-color:#54243b}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+/* Lightweight luxury refinement: remove heavy icon tiles and reduce visual density */
+:root{
+ --brand-burgundy:#3B0718;--brand-wine:#520D27;--brand-accent:#781D40;
+ --brand-paper:#F5EBDD;--brand-pearl:#E9DDCF;
+}
+body{background:#F5EBDD!important;color:#3B0718!important}
+.sidebar-brand .brand-mark{
+ width:38px;height:38px;border:0;border-radius:0;background:transparent;
+ box-shadow:none;display:grid;place-items:center;transform:none;padding:1px;
+}
+.sidebar-brand .brand-mark svg{width:100%;height:100%;display:block;overflow:visible}
+.nav{gap:3px!important}
+.nav .pill{
+ min-height:42px;padding:8px 10px!important;gap:10px!important;
+ border:0!important;border-radius:9px!important;background:transparent!important;
+ color:#3B0718!important;font-weight:550;
+}
+.nav .nav-icon{
+ width:25px!important;min-width:25px!important;height:25px!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ color:#520D27!important;box-shadow:none!important;display:grid;place-items:center;
+}
+.nav .nav-icon svg{width:20px!important;height:20px!important;display:block}
+.nav .pill .nav-icon svg g{stroke:currentColor!important}
+.nav .pill.active{
+ background:#E9DDCF!important;color:#3B0718!important;border:0!important;
+ box-shadow:none!important;font-weight:650;
+}
+.nav .pill.active .nav-icon{background:transparent!important;color:#3B0718!important;box-shadow:none!important}
+.nav .pill.active .nav-icon svg g{stroke:currentColor!important}
+.nav .pill:hover{background:#EFE5D9!important;color:#3B0718!important}
+.nav .pill:hover .nav-icon{filter:none!important}
+.home-hero{
+ margin:20px 0 24px!important;padding:34px 36px 32px!important;
+ min-height:220px!important;background:#FBF8F2!important;border:0!important;
+ border-radius:15px!important;box-shadow:none!important;
+}
+.home-hero h1{font-size:clamp(28px,3.1vw,39px)!important;letter-spacing:-.7px}
+.home-grid{gap:9px!important}
+.home-card{
+ min-height:72px!important;padding:12px 14px!important;gap:11px!important;
+ background:#FBF8F2!important;border:1px solid #E9DDCF!important;
+ border-radius:10px!important;box-shadow:none!important;transition:background .15s ease!important;
+}
+.home-card:hover{background:#F1E8DD!important;border-color:#E1D2C4!important}
+.home-card-icon{
+ width:32px!important;height:32px!important;border-radius:8px!important;
+ background:#E9DDCF!important;color:#520D27!important;
+}
+.home-note{border:0!important;background:#EFE5D9!important;border-radius:10px!important}
+.panel{box-shadow:none!important;border-radius:13px!important}
+.pagehead{margin-bottom:18px!important}
+button,.pill{box-shadow:none}
+@media(max-width:760px){
+ .home-hero{padding:26px 22px!important;min-height:unset!important}
+ .home-grid{gap:8px!important}
+ .home-card{padding:10px!important;min-height:68px!important}
+ .nav .pill{min-height:39px!important}
+}
+
 </style></head><body>
 <button class="pill" data-view="ask"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.7 8.7 0 0 1-3.5-.7L4 20l1.6-3.6A7 7 0 0 1 4 11.5 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/><path d="m12 7 .8 2.2L15 10l-2.2.8L12 13l-.8-2.2L9 10l2.2-.8Z"/></g></svg></span><span class="nav-label">Ask Arvanta</span></button>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
@@ -3227,29 +3288,3 @@ function bindSearch(inputId, containerId, selector){const input=document.getElem
 const scriptSearch=document.getElementById('scriptSearch');if(scriptSearch){const scriptDocs=[...document.querySelectorAll('#scriptList details')],scriptCount=document.getElementById('scriptCount');scriptSearch.addEventListener('input',()=>{const q=scriptSearch.value.toLowerCase().trim();let visible=0;scriptDocs.forEach(doc=>{const match=!q||doc.textContent.toLowerCase().includes(q);doc.hidden=!match;if(match){visible++;if(q)doc.open=true}});scriptCount.textContent=visible+' of '+scriptDocs.length+' documents'})}const faqSearch=document.getElementById('faqSearch');if(faqSearch){const faqItems=[...document.querySelectorAll('#faqList details')],faqCount=document.getElementById('faqCount'),faqEmpty=document.getElementById('faqEmpty');faqCount.textContent=faqItems.length+' answers';faqSearch.addEventListener('input',()=>{const q=faqSearch.value.toLowerCase().trim();let visible=0;faqItems.forEach(item=>{const match=!q||item.textContent.toLowerCase().includes(q);item.hidden=!match;if(match){visible++;if(q)item.open=true}else item.open=false});faqCount.textContent=visible+' of '+faqItems.length+' answers';faqEmpty.hidden=visible!==0})}const quickSearch=document.getElementById('quickSearch');if(quickSearch){const quickCards=[...document.querySelectorAll('#quickCards .quick-stage')],quickItems=[...document.querySelectorAll('#quickList details')],quickCount=document.getElementById('quickCount'),quickEmpty=document.getElementById('quickEmpty');const updateQuickCount=()=>{const stages=quickCards.filter(x=>!x.hidden).length,topics=quickItems.filter(x=>!x.hidden).length;quickCount.textContent=stages+' lead stages · '+topics+' reference topics';quickEmpty.hidden=stages+topics!==0};quickSearch.addEventListener('input',()=>{const q=quickSearch.value.toLowerCase().trim();quickCards.forEach(x=>x.hidden=!!q&&!x.textContent.toLowerCase().includes(q));quickItems.forEach(x=>{const match=!q||x.textContent.toLowerCase().includes(q);x.hidden=!match;if(q&&match)x.open=true;if(!match)x.open=false});updateQuickCount()});updateQuickCount()}const brandSearch=document.getElementById('brandSearch');if(brandSearch){const brandItems=[...document.querySelectorAll('#brandList details')],brandCount=document.getElementById('brandCount'),brandEmpty=document.getElementById('brandEmpty');brandCount.textContent=brandItems.length+' reference topics';brandSearch.addEventListener('input',()=>{const q=brandSearch.value.toLowerCase().trim();let visible=0;brandItems.forEach(item=>{const match=!q||item.textContent.toLowerCase().includes(q);item.hidden=!match;if(match){visible++;if(q)item.open=true}else item.open=false});brandCount.textContent=visible+' of '+brandItems.length+' topics';brandEmpty.hidden=visible!==0})}const teamSearch=document.getElementById('teamSearch');if(teamSearch){const teamSections=[...document.querySelectorAll('#teamList > details')],teamRows=[...document.querySelectorAll('.team-directory-table tbody tr')],teamCount=document.getElementById('teamCount'),teamEmpty=document.getElementById('teamEmpty');const updateTeamCount=()=>{const visibleRows=teamRows.filter(row=>!row.hidden).length,visibleSections=teamSections.filter(section=>!section.hidden).length;const visibleLocations=teamSections[1]&&!teamSections[1].hidden?[...teamSections[1].querySelectorAll('.team-location-card')].filter(card=>!card.hidden).length:0;teamCount.textContent=visibleRows+' contacts · '+visibleLocations+' locations';teamEmpty.hidden=visibleSections!==0};teamSearch.addEventListener('input',()=>{const q=teamSearch.value.toLowerCase().trim();teamSections.forEach(section=>{const rows=[...section.querySelectorAll('tbody tr')];if(rows.length){let matches=0;rows.forEach(row=>{const match=!q||row.textContent.toLowerCase().includes(q);row.hidden=!match;if(match)matches++});section.hidden=matches===0}else{const cards=[...section.querySelectorAll('.team-location-card')];if(cards.length){let matches=0;cards.forEach(card=>{const match=!q||card.textContent.toLowerCase().includes(q);card.hidden=!match;if(match)matches++});section.hidden=matches===0}else{const match=!q||section.textContent.toLowerCase().includes(q);section.hidden=!match}}});updateTeamCount()});updateTeamCount()}
 
 </script></body></html>
-
-/* ARVANTA luxury waveform identity — transparent standalone logo + coordinated icon tiles */
-.sidebar-brand .brand-mark{
-  width:38px;height:38px;border:0;border-radius:0;background:transparent;
-  box-shadow:none;display:grid;place-items:center;transform:none;padding:1px;
-}
-.sidebar-brand .brand-mark svg{width:100%;height:100%;display:block;overflow:visible}
-.nav .nav-icon{
-  width:30px;min-width:30px;height:30px;border-radius:9px;
-  display:grid;place-items:center;background:#520D27;color:#F5EBDD;
-  border:1px solid #781D40;box-shadow:inset 0 1px 0 #ffffff20,0 2px 4px #3B07181f;
-  transition:none;
-}
-.nav .nav-icon svg{width:18px;height:18px;display:block}
-.nav .pill .nav-icon svg g{stroke:#F5EBDD!important}
-.nav .pill.active .nav-icon{
-  background:#F5EBDD;color:#3B0718;border-color:#E9DDCF;
-  box-shadow:inset 0 1px 0 #fff8,0 1px 3px #3B07181f;
-}
-.nav .pill.active .nav-icon svg g{stroke:#3B0718!important}
-.nav .pill:hover .nav-icon{filter:brightness(1.04)}
-@media(max-width:760px){
-  .nav .nav-icon{width:27px;min-width:27px;height:27px;border-radius:8px}
-  .nav .nav-icon svg{width:17px;height:17px}
-}
-
