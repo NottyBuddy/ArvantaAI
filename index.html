@@ -750,15 +750,6 @@ body.sidebar-collapsed .collapse-chevron{transform:rotate(-45deg)!important}
 
 <main>
 <section class="view active" id="home" aria-labelledby="homeTitle">
-  <div class="home-hero">
-    <div class="home-eyebrow">ARVANTA · INTELLIGENT WORKSPACE</div>
-    <h1 id="homeTitle">Your IndiFrame knowledge workspace.</h1>
-    <p>Find approved answers, follow the right process and move every customer conversation forward with confidence.</p>
-    <div class="home-actions">
-      <button class="home-primary" type="button" data-view="ask">Ask Arvanta <span aria-hidden="true">→</span></button>
-      
-    </div>
-  </div>
   <div class="home-section-head"><div><span class="home-kicker">WORKSPACE</span><h2>Go to a section</h2><p>Open the information you need, without duplicate navigation.</p></div></div>
   <div class="home-grid">
     <button class="home-card" type="button" data-view="scripts"><span class="home-card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4 4V20H6z"/><path d="M14 3.5V8h4M9 12h6M9 16h6"/></svg></span><span><b>Call Scripts</b><small>Approved scripts, scenarios and objection handling</small></span><span class="home-arrow">↗</span></button>
@@ -3805,3 +3796,28 @@ document.querySelectorAll('details > summary').forEach(summary=>{
 });
 
 </script></body></html>
+
+
+/* Verified layout correction: remove the oversized Home banner and make collapse state control sidebar width only. */
+.home-hero{display:none!important}
+@media (min-width:901px){
+  .navwrap{width:226px!important}
+  body.sidebar-collapsed .navwrap{width:72px!important}
+  main{width:calc(100% - 226px)!important;margin-left:226px!important}
+  body.sidebar-collapsed main{width:calc(100% - 72px)!important;margin-left:72px!important}
+  body.sidebar-collapsed .top{padding-left:106px!important}
+}
+@media (min-width:621px) and (max-width:900px){
+  .navwrap{width:200px!important}
+  body.sidebar-collapsed .navwrap{width:72px!important}
+  main{width:calc(100% - 200px)!important;margin-left:200px!important}
+  body.sidebar-collapsed main{width:calc(100% - 72px)!important;margin-left:72px!important}
+  .top{padding-left:218px!important}
+  body.sidebar-collapsed .top{padding-left:90px!important}
+}
+@media (min-width:621px){
+  body.sidebar-collapsed .nav .pill{width:42px!important;height:42px!important;padding:0!important;justify-content:center!important}
+  body.sidebar-collapsed .nav .nav-label{display:none!important}
+  body.sidebar-collapsed .collapse-toggle{justify-content:center!important}
+  body.sidebar-collapsed .collapse-label{display:none!important}
+}
