@@ -328,6 +328,60 @@ button,.pill{box-shadow:none}
  .team-location-grid{grid-template-columns:1fr}
 }
 
+
+/* Final correction: transparent controls and restore visible Home shortcuts */
+button,
+button:hover,
+button:focus,
+button:active,
+button.pill,
+button.primary,
+button.home-primary,
+button.home-secondary,
+button.source-link{
+ background:transparent!important;
+ background-color:transparent!important;
+ border:0!important;
+ box-shadow:none!important;
+}
+button:hover{filter:none!important;transform:none!important}
+.home-hero,.home-grid,.home-card,.home-note,
+.card,.panel,.library-list>button,.quick-stage,
+.quick-count,.team-section-note,.team-location-card,
+.team-directory-section,.team-table-wrap,
+.welcome,.suggestions button,.source-link{
+ background:transparent!important;
+ border:0!important;
+ box-shadow:none!important;
+}
+.home-grid{
+ display:grid!important;
+ grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:18px 34px!important;
+ margin:18px 0 24px!important;
+}
+.home-card{
+ display:grid!important;
+ grid-template-columns:30px minmax(0,1fr) auto!important;
+ align-items:center!important;
+ gap:12px!important;
+ width:100%!important;
+ min-height:72px!important;
+ padding:12px 4px!important;
+ border:0!important;
+ border-radius:0!important;
+ text-align:left!important;
+ color:#17171b!important;
+}
+.home-card>span:nth-child(2){display:block!important;min-width:0!important}
+.home-card b{display:block!important;color:#17171b!important;font-size:13px!important}
+.home-card small{display:block!important;color:#625d5f!important;font-size:11px!important;line-height:1.5!important;margin-top:4px!important}
+.home-card-icon{display:grid!important;place-items:center!important;background:transparent!important;color:#520d27!important;border:0!important;width:26px!important;height:26px!important}
+.home-arrow{color:#520d27!important}
+.home-note{display:flex!important;gap:10px!important;align-items:flex-start!important;padding:12px 0!important}
+.home-primary,.home-secondary{color:#520d27!important;padding:9px 0!important}
+@media(max-width:700px){.home-grid{grid-template-columns:1fr!important;gap:4px!important}}
+
 </style></head><body>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
 <button class="pill active" data-view="home"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></g></svg></span><span class="nav-label">Home</span></button>
