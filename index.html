@@ -240,6 +240,49 @@ button,.pill{box-shadow:none}
  transform:none!important;
 }
 
+
+/* Direct-content layout: remove card and boxed-panel presentation site-wide */
+.card,.home-card,.panel,.team-location-card,.library-card,.collection-card,
+.home-note,.home-hero,.home-grid,.cards{
+ background:transparent!important;
+ border:0!important;
+ box-shadow:none!important;
+}
+.card,.home-card,.team-location-card,.library-card,.collection-card{
+ border-radius:0!important;
+}
+.card:hover,.home-card:hover,.team-location-card:hover,.library-card:hover,.collection-card:hover{
+ background:transparent!important;
+ border:0!important;
+ box-shadow:none!important;
+ transform:none!important;
+}
+.home-grid{
+ display:flex!important;
+ flex-direction:column!important;
+ gap:0!important;
+}
+.home-card{
+ display:flex!important;
+ width:100%!important;
+ min-height:0!important;
+ padding:13px 0!important;
+ border-bottom:1px solid #e9ddcf!important;
+ border-radius:0!important;
+ text-align:left!important;
+}
+.home-card:last-child{border-bottom:0!important}
+.home-card-icon{
+ width:26px!important;height:26px!important;
+ border-radius:50%!important;
+ background:transparent!important;
+ color:#520d27!important;
+}
+.panel{
+ padding:18px 0!important;
+ border-radius:0!important;
+}
+
 </style></head><body>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
 <button class="pill active" data-view="home"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></g></svg></span><span class="nav-label">Home</span></button>
