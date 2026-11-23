@@ -14,6 +14,51 @@
     if(old)old.remove();
     const wrap=document.createElement("div");
     wrap.className="knowledge-content";
+    if(id==="scripts"){
+      const hub=document.createElement("div");
+      hub.className="script-hub";
+      const intro=document.createElement("div");
+      intro.className="script-hub-intro";
+      intro.innerHTML="<div><span class='script-hub-kicker'>SCRIPT HUB</span><h2>Scripts</h2><p>Choose the complete call-script library.</p><small>Version: 1.0 · Last Updated: 2026-10-01</small></div><span class='script-approved'>APPROVED</span>";
+      const grid=document.createElement("div");
+      grid.className="script-hub-grid";
+      const cards=[
+        {number:"01",title:"Final Scripts",key:"final"},
+        {number:"02",title:"Secondary Scripts",key:"secondary"},
+        {number:"03",title:"Hindi Roman Script",key:"hindi"},
+        {number:"04",title:"Telugu Roman Scripts",key:"telugu"}
+      ];
+      cards.forEach(card=>{
+        const details=document.createElement("details");
+        details.className="script-hub-card";
+        const summary=document.createElement("summary");
+        summary.innerHTML="<span class='script-hub-number'>"+card.number+"</span><span class='script-hub-card-title'>"+esc(card.title)+"</span><span class='script-hub-open'>Open full script →</span>";
+        const body=document.createElement("div");
+        body.className="script-hub-body";
+        if(card.key==="final"&&docs.length){
+          docs.forEach(doc=>{
+            const section=document.createElement("details");
+            section.className="script-hub-section";
+            const heading=document.createElement("summary");
+            heading.textContent=doc.section;
+            const content=document.createElement("div");
+            content.textContent=doc.content;
+            section.append(heading,content);
+            body.append(section);
+          });
+        }else{
+          body.textContent="Approved source content for this script has not been added yet. Please provide the complete document to publish it here.";
+        }
+        details.append(summary,body);
+        grid.append(details);
+      });
+      hub.append(intro,grid);
+      wrap.append(hub);
+      root.append(wrap);
+      const head=root.querySelector(".pagehead p");
+      if(head)head.textContent="Choose the complete call-script library.";
+      return;
+    }
     const search=document.createElement("input");
     search.className="search knowledge-search";
     search.placeholder="Search approved content…";
