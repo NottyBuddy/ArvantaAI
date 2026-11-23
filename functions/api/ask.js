@@ -33,10 +33,11 @@ function detectLanguage(question) {
     return /\b(आहे|आहेत|मला|माझ्या|कृपया|कसे|कशी|कोणते|साठी|मध्ये|बद्दल|करावे|करायचे)\b/u.test(q) ? "mr" : "hi";
   }
   const roman = normalize(q);
-  const hasEnglishTerms = /\b(what|where|when|how|why|please|price|available|location|customer|product|warranty|team|call|script|process|stage|lead|window|door|aluminium|upvc|profile|hardware|sales|details|update)\b/u.test(roman);
-  if (/\b(nenu|meeru|memu|maaku|naaku|undi|unnayi|ledu|kaavali|kavali|cheppandi|cheppu|ela|ekkada|eppudu|enduku|chesaru|chesina|avuthundi|avutundi|kosam|tho)\b/u.test(roman)) return "roman_te";
+  if (/\b(naku|naaku|neeku|meeku|nenu|meeru|memu|maaku|undi|unnayi|ledu|kaavali|kavali|cheppandi|cheppu|ela|ekkada|eppudu|enduku|chesaru|chesina|avuthundi|avutundi|kosam|tho|lo|ki|nundi|ekkad|unnadi)\b/u.test(roman)) return "roman_te";
   if (/\b(ahe|aahe|ahet|mala|majha|majhi|majhe|tumhi|apan|amhi|kay|kasa|kashi|kuthe|kevha|karayche|karave|sanga|nahi|madhe|sathi|sobat|hotay|honar)\b/u.test(roman)) return "roman_mr";
-  if (/\b(hai|hain|tha|thi|the|kya|kaise|ka|ki|ke|ko|se|mein|mujhe|aap|apko|batao|btao|chahiye|karna|hoga|kab|kahan|kyu|kyon|nahi|nahin|kitna|kitni|kaunsa|kaunsi|krna|krdo|karo|raha|rahi|rahe|iska|uska|unka|hamara|mera|tera)\b/u.test(roman)) return hasEnglishTerms ? "hinglish" : "roman_hi";
+  const hindiMarkers = /\b(hai|hain|tha|thi|the|kya|kaise|ka|ki|ke|ko|se|mein|mujhe|aap|apko|batao|btao|chahiye|karna|hoga|kab|kahan|kyu|kyon|nahi|nahin|kitna|kitni|kaunsa|kaunsi|krna|krdo|karo|raha|rahi|rahe|iska|uska|unka|hamara|mera|tera)\b/u.test(roman);
+  const englishMarkers = /\b(what|where|when|how|why|please|price|available|location|customer|product|warranty|team|call|script|process|stage|lead|window|door|aluminium|upvc|profile|hardware|sales|details|update|type|site)\b/u.test(roman);
+  if (hindiMarkers) return englishMarkers ? "hinglish" : "roman_hi";
   return "en";
 }
 function localizedNoSource(question) {
