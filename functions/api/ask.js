@@ -17,12 +17,16 @@ function normalize(value) {
     .replace(/\p{M}/gu, "")
     .replace(/[^\p{L}\p{N}\s]/gu, " ")
     .replace(/\s+/g, " ")
-    .trim();
+    .trim()
+    // Common customer spelling variants for approved city names.
+    .replace(/\bhyderabaad\b/g, "hyderabad")
+    .replace(/\bhyderbad\b/g, "hyderabad");
 }
 
 const STOP_WORDS = new Set([
   "the","and","for","with","from","that","this","what","when","where","which","how","does","can","could","would","should",
   "hai","hain","ka","ki","ke","ko","se","me","mein","kya","kaise","kab","kahan","aur","mujhe","batao","please","tell","about",
+  "naku","naaku","kavali","kaavali","ekkada","eppudu","lo","undi","unnayi","cheppu","cheppandi","kosam","tho",
   "sir","maam","madam","customer","agent","kindly","btao","bataiye","karo","krdo","h","ho","kaun","konsa","kiski"
 ]);
 
