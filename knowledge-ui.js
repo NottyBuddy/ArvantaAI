@@ -4,11 +4,11 @@
     faqs: d => d.title === "FAQ Bank",
     quick: d => ["Lead stages and routing","Retry cadence and unreachable leads","Protected accounts","CRM activity and callback","Directory and serviceability guardrails","Service area matrix"].includes(d.section),
     brand: d => ["Final Brand & Product SOP","IndiFrame Brochure"].includes(d.title),
-    team: d => ["Sales team directory","Experience centre and dealer display directory","Service area matrix"].includes(d.section)
+    team: d => ["Experience centre and dealer display directory","Service area matrix"].includes(d.section)
   };
   const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
   function renderStructuredContent(doc, body){
-    const lines=String(doc.content||"").split(/\\r?\\n/);
+    const lines=String(doc.content||"").split(/\r?\n/);
     const makeTable=(headers,rows)=>{
       const table=document.createElement("table");table.className="team-directory-table structured-data-table";
       const thead=document.createElement("thead"),hr=document.createElement("tr");
@@ -27,7 +27,7 @@
         if(c.length<4)return null;
         const map=c.find(v=>v.startsWith("Map:"));
         const status=c.find(v=>v.startsWith("Status:"));
-        const url=map?map.replace(/^Map:\\s*/,"").trim():"";
+        const url=map?map.replace(/^Map:\s*/,"").trim():"";
         return [c[0],c[1],c[2],{label:"View Map",href:url},status?status.replace(/^Status:\\s*/,""):"Available / listed"];
       }).filter(Boolean);
       makeTable(["City / Location","Showroom / Partner","Full Address","Map","Status"],rows);
@@ -45,7 +45,7 @@
         if(!line)return;
         const content=line.slice(line.indexOf(":")+1).trim();
         const rows=content.split(";").map(part=>{
-          const m=part.trim().match(/^(.+?)\\s+(\\d+(?:–\\d+)?\\s*km)$/i);
+          const m=part.trim().match(/^(.+?)\s+(\d+(?:–\d+)?\s*km)$/i);
           return m?[m[1].trim(),m[2].replace(/\\s+/g,"")]:null;
         }).filter(Boolean);
         const heading=document.createElement("h4");heading.className="coverage-table-heading";heading.textContent=b.name+" — Coverage from "+b.base;
@@ -125,7 +125,7 @@
       const details=document.createElement("details");
       details.className="knowledge-item";
       const summary=document.createElement("summary");
-      summary.innerHTML="<b>"+esc(doc.section)+"</b><small>"+esc(doc.title)+"</small>";
+      summary.innerHTML="<b>"+esc(doc.section==="Experience centre and dealer display directory"?"Experience Centre & Dealer Display Directory":doc.section)+"</b><small>"+esc(doc.title)+"</small>";
       const body=document.createElement("div");
       body.className="knowledge-body";
       renderStructuredContent(doc,body);
