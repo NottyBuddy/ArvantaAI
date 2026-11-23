@@ -113,9 +113,9 @@
         const table=document.createElement("table");table.className="team-directory-table";
         table.innerHTML="<thead><tr><th>Sales Person</th><th>Type</th><th>City</th><th>Designation</th><th>Mobile</th><th>Manager</th><th>Email</th><th>State</th></tr></thead>";
         const tbody=document.createElement("tbody");
-        directory.content.split("\\n").filter(line=>line.includes(" | ")).forEach(line=>{
+        directory.content.split("\n").filter(line=>line.includes(" | ")).forEach(line=>{
           const cells=line.split(" | ").map(v=>v.trim());
-          if(cells.length===8 && /^\\d{10}$/.test(cells[4])){
+          if(cells.length===8 && /^\d{10}$/.test(cells[4])){
             const tr=document.createElement("tr");
             cells.forEach((v,i)=>{const td=document.createElement("td");td.textContent=v;if(i===4){td.style.whiteSpace="nowrap"}if(i===6){td.textContent=v;td.style.wordBreak="break-word"}tr.append(td)});
             tbody.append(tr);
