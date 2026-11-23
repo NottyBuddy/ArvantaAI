@@ -128,7 +128,7 @@
       summary.innerHTML="<b>"+esc(doc.section)+"</b><small>"+esc(doc.title)+"</small>";
       const body=document.createElement("div");
       body.className="knowledge-body";
-      body.textContent=doc.content;
+      renderStructuredContent(doc,body);
       details.append(summary,body);
       list.append(details);
     });
