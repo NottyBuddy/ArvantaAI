@@ -35,8 +35,13 @@
         summary.innerHTML="<span class='script-hub-number'>"+card.number+"</span><span class='script-hub-card-title'>"+esc(card.title)+"</span><span class='script-hub-open'>Open full script →</span>";
         const body=document.createElement("div");
         body.className="script-hub-body";
-        if(card.key==="final"&&docs.length){
-          docs.forEach(doc=>{
+        const selectedDocs=card.key==="final"
+          ?docs.filter(doc=>doc.title==="Final Pre-Sales Call Script")
+          :card.key==="secondary"
+            ?docs.filter(doc=>doc.title==="Updated Call Script")
+            :[];
+        if(selectedDocs.length){
+          selectedDocs.forEach(doc=>{
             const section=document.createElement("details");
             section.className="script-hub-section";
             const heading=document.createElement("summary");
