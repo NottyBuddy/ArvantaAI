@@ -1,6 +1,6 @@
 (async function(){
   const targets = {
-    scripts: d => d.title === "Final Pre-Sales Call Script" && !["Pricing rules"].includes(d.section),
+    scripts: d => ["Final Pre-Sales Call Script","Updated Call Script"].includes(d.title) && !["Pricing rules"].includes(d.section),
     faqs: d => d.title === "FAQ Bank",
     quick: d => ["Lead stages and routing","Retry cadence and unreachable leads","Protected accounts","CRM activity and callback","Directory and serviceability guardrails","Service area matrix"].includes(d.section),
     brand: d => ["Final Brand & Product SOP","IndiFrame Brochure"].includes(d.title),
@@ -111,11 +111,15 @@
         summary.innerHTML="<b>Sales Team Contacts</b><small>Excel Indi Frame Core</small>";
         const box=document.createElement("div");box.className="knowledge-body";
         const table=document.createElement("table");table.className="team-directory-table";
-        table.innerHTML="<thead><tr><th>Name</th><th>Mobile</th><th>Email</th><th>Designation</th><th>Coverage</th></tr></thead>";
+        table.innerHTML="<thead><tr><th>Sales Person</th><th>Type</th><th>City</th><th>Designation</th><th>Mobile</th><th>Manager</th><th>Email</th><th>State</th></tr></thead>";
         const tbody=document.createElement("tbody");
-        directory.content.replace(/^Excel Team Directory[^.]*\.\s*/,"").split(/(?<=\.)\s+(?=[A-Z\w])/).forEach(line=>{
-          const m=line.match(/^(.+?)\s+—\s+(\d{10})\s+—\s+([^\s]+@[^\s]+)\s+—\s+(.+?)\s+—\s+(.+)\.?$/);
-          if(m){const tr=document.createElement("tr");[m[1],m[2],m[3],m[4],m[5]].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.append(td)});tbody.append(tr)}
+        directory.content.split("\\n").filter(line=>line.includes(" | ")).forEach(line=>{
+          const cells=line.split(" | ").map(v=>v.trim());
+          if(cells.length===8 && /^\\d{10}$/.test(cells[4])){
+            const tr=document.createElement("tr");
+            cells.forEach((v,i)=>{const td=document.createElement("td");td.textContent=v;if(i===4){td.style.whiteSpace="nowrap"}if(i===6){td.textContent=v;td.style.wordBreak="break-word"}tr.append(td)});
+            tbody.append(tr);
+          }
         });
         table.append(tbody);box.append(table);
         const note=document.createElement("p");note.textContent="Protected account control: verify the Key Account List before initiating an outbound call. Directory assignment does not confirm serviceability.";
