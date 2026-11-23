@@ -7,6 +7,57 @@
     team: d => ["Sales team directory","Experience centre and dealer display directory","Service area matrix"].includes(d.section)
   };
   const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+  function renderStructuredContent(doc, body){
+    const lines=String(doc.content||"").split(/\\r?\\n/);
+    const makeTable=(headers,rows)=>{
+      const table=document.createElement("table");table.className="team-directory-table structured-data-table";
+      const thead=document.createElement("thead"),hr=document.createElement("tr");
+      headers.forEach(h=>{const th=document.createElement("th");th.textContent=h;hr.append(th)});
+      thead.append(hr);table.append(thead);
+      const tbody=document.createElement("tbody");
+      rows.forEach(row=>{const tr=document.createElement("tr");row.forEach((v,i)=>{const td=document.createElement("td");
+        if(v&&typeof v==="object"&&v.href){const link=document.createElement("a");link.href=v.href;link.target="_blank";link.rel="noopener noreferrer";link.textContent=v.label||"View Map";td.append(link)}
+        else td.textContent=String(v??"");
+        tr.append(td)});tbody.append(tr)});
+      table.append(tbody);body.append(table);return table;
+    };
+    if(doc.section==="Experience centre and dealer display directory"){
+      const rows=lines.filter(line=>line.includes(" | ")&&!/^UPDATED|^City & Location/i.test(line)).map(line=>{
+        const c=line.split(" | ").map(v=>v.trim());
+        if(c.length<4)return null;
+        const map=c.find(v=>v.startsWith("Map:"));
+        const status=c.find(v=>v.startsWith("Status:"));
+        const url=map?map.replace(/^Map:\\s*/,"").trim():"";
+        return [c[0],c[1],c[2],{label:"View Map",href:url},status?status.replace(/^Status:\\s*/,""):"Available / listed"];
+      }).filter(Boolean);
+      makeTable(["City / Location","Showroom / Partner","Full Address","Map","Status"],rows);
+      const note=document.createElement("p");note.className="table-note";note.textContent="Jubilee Hills: Coming Soon. Confirm showroom availability before directing a customer.";body.append(note);
+      return true;
+    }
+    if(doc.section==="Service area matrix"){
+      const blocks=[
+        {name:"Ajay Guthala",base:"Kakinada"},
+        {name:"Merugu Rajesh",base:"Vijayawada"},
+        {name:"Sandeep Kumar",base:"Hanamkonda"}
+      ];
+      blocks.forEach((b,index)=>{
+        const line=lines.find(x=>x.startsWith(b.name+" — base "));
+        if(!line)return;
+        const content=line.slice(line.indexOf(":")+1).trim();
+        const rows=content.split(";").map(part=>{
+          const m=part.trim().match(/^(.+?)\\s+(\\d+(?:–\\d+)?\\s*km)$/i);
+          return m?[m[1].trim(),m[2].replace(/\\s+/g,"")]:null;
+        }).filter(Boolean);
+        const heading=document.createElement("h4");heading.className="coverage-table-heading";heading.textContent=b.name+" — Coverage from "+b.base;
+        body.append(heading);
+        makeTable(["City / Town / Area","Approx. Distance"],rows);
+      });
+      const note=document.createElement("p");note.className="table-note";note.textContent="Distances are approximate routing references only, not guaranteed installation boundaries. Confirm exact serviceability with the responsible team.";body.append(note);
+      return true;
+    }
+    body.textContent=doc.content;
+    return false;
+  }
   function addContent(id, docs){
     const root=document.getElementById(id);
     if(!root)return;
