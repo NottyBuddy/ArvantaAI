@@ -739,7 +739,6 @@ body.sidebar-collapsed .collapse-chevron{transform:rotate(-45deg)!important}
 </style>
 <style>
 .knowledge-content{margin:8px 0 36px}.knowledge-search{width:100%;max-width:520px;margin:0 0 10px}.knowledge-meta{font-size:11px;color:#54243b;margin:4px 0 12px}.knowledge-list{display:grid;gap:9px}.knowledge-item{background:#fff;border:1px solid #e4dedf;border-radius:12px;padding:14px 16px}.knowledge-item summary{cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;color:#54243b;list-style:none}.knowledge-item summary::-webkit-details-marker{display:none}.knowledge-item summary b{font-size:13px;font-weight:650}.knowledge-item summary small{font-size:10px;color:#5d5157}.knowledge-body{white-space:pre-wrap;line-height:1.7;font-size:12px;color:#17171b;padding:14px 0 2px;overflow-wrap:anywhere}.knowledge-body p{margin:8px 0}.team-directory-table{width:100%;border-collapse:collapse;font-size:11px;white-space:normal}.team-directory-table th,.team-directory-table td{padding:9px 8px;text-align:left;border-bottom:1px solid #e8e4e1;vertical-align:top}.team-directory-table th{color:#54243b;font-weight:650}.knowledge-placeholder{min-height:20px}
-</style>
 
 /* Final icon sizing: icon-only adjustment; preserve logo and layout. */
 .nav .pill .nav-icon{width:10px!important;min-width:10px!important;height:10px!important}
@@ -749,6 +748,66 @@ body.sidebar-collapsed .collapse-chevron{transform:rotate(-45deg)!important}
  .nav .pill .nav-icon{width:9px!important;min-width:9px!important;height:9px!important}
  .nav .pill .nav-icon svg{width:9px!important;height:9px!important}
 }
+
+
+
+/* Recovered legacy layout rules moved back inside the document stylesheet. */
+/* Verified layout correction: remove the oversized Home banner and make collapse state control sidebar width only. */
+.home-hero{display:none!important}
+@media (min-width:901px){
+  .navwrap{width:226px!important}
+  body.sidebar-collapsed .navwrap{width:72px!important}
+  main{width:calc(100% - 226px)!important;margin-left:226px!important}
+  body.sidebar-collapsed main{width:calc(100% - 72px)!important;margin-left:72px!important}
+  body.sidebar-collapsed .top{padding-left:106px!important}
+}
+@media (min-width:621px) and (max-width:900px){
+  .navwrap{width:200px!important}
+  body.sidebar-collapsed .navwrap{width:72px!important}
+  main{width:calc(100% - 200px)!important;margin-left:200px!important}
+  body.sidebar-collapsed main{width:calc(100% - 72px)!important;margin-left:72px!important}
+  .top{padding-left:218px!important}
+  body.sidebar-collapsed .top{padding-left:90px!important}
+}
+@media (min-width:621px){
+  body.sidebar-collapsed .nav .pill{width:42px!important;height:42px!important;padding:0!important;justify-content:center!important}
+  body.sidebar-collapsed .nav .nav-label{display:none!important}
+  body.sidebar-collapsed .collapse-toggle{justify-content:center!important}
+  body.sidebar-collapsed .collapse-label{display:none!important}
+}
+
+/* Sidebar collapse is now triggered from the logo; no bottom control strip. */
+.brand-mark{appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;padding:0;color:inherit}
+.brand-mark:focus-visible{outline:2px solid #54243b;outline-offset:4px}
+.sidebar-bottom .collapse-toggle{display:flex!important}
+
+/* Restore the dedicated collapse/expand control at the bottom of the sidebar. */
+.brand-mark{cursor:default}
+.sidebar-bottom .collapse-toggle{display:flex!important}
+
+/* Replace the tiny arrow-only strip with the proper bottom Collapse/Expand button. */
+.sidebar-bottom .collapse-toggle{
+ width:100%!important;height:auto!important;min-width:0!important;
+ margin:8px 0 0!important;padding:10px 12px!important;
+ display:flex!important;align-items:center!important;justify-content:flex-start!important;
+ gap:11px!important;border:1px solid #d2cfc8!important;border-radius:9px!important;
+ background:#f3f1ed!important;box-shadow:none!important;font-size:11px!important;
+}
+.sidebar-bottom .collapse-label{display:inline!important;font-size:11px!important;white-space:nowrap!important}
+.sidebar-bottom .collapse-chevron{
+ display:inline-block!important;flex:0 0 8px!important;width:8px!important;height:8px!important;
+ border-right:1.8px solid #54243b!important;border-bottom:1.8px solid #54243b!important;
+ border-left:0!important;border-top:0!important;font-size:0!important;line-height:0!important;
+ transform:rotate(135deg)!important;
+}
+body.sidebar-collapsed .sidebar-bottom .collapse-toggle{
+ width:42px!important;height:42px!important;min-width:42px!important;
+ margin:8px auto 0!important;padding:0!important;justify-content:center!important;
+}
+body.sidebar-collapsed .sidebar-bottom .collapse-label{display:none!important}
+body.sidebar-collapsed .sidebar-bottom .collapse-chevron{transform:rotate(-45deg)!important}
+@media(max-width:680px){.sidebar-bottom{display:none!important}}
+</style>
 
 </head><body>
 <aside class="navwrap" aria-label="Main navigation"><div class="sidebar-brand"><div class="brand-mark" aria-label="Arvanta logo"><svg viewBox="0 0 48 48" role="img" aria-label="Arvanta waveform logo" xmlns="http://www.w3.org/2000/svg"><g fill="#520D27"><rect x="4" y="20" width="5" height="8" rx="2.5"/><rect x="11" y="14" width="5" height="20" rx="2.5"/><rect x="18" y="9" width="5" height="30" rx="2.5"/><rect x="25" y="4" width="5" height="40" rx="2.5"/><rect x="32" y="9" width="5" height="30" rx="2.5"/><rect x="39" y="16" width="5" height="16" rx="2.5"/></g></svg></div><div class="brand-copy"><b>ARVANTA</b><small>AI HELP DESK</small></div></div><div class="nav">
@@ -836,60 +895,3 @@ document.querySelectorAll('details > summary').forEach(summary=>{
   .nav .pill svg{width:15px!important;height:15px!important;flex:0 0 15px!important}
 }
 </body></html>
-
-
-/* Verified layout correction: remove the oversized Home banner and make collapse state control sidebar width only. */
-.home-hero{display:none!important}
-@media (min-width:901px){
-  .navwrap{width:226px!important}
-  body.sidebar-collapsed .navwrap{width:72px!important}
-  main{width:calc(100% - 226px)!important;margin-left:226px!important}
-  body.sidebar-collapsed main{width:calc(100% - 72px)!important;margin-left:72px!important}
-  body.sidebar-collapsed .top{padding-left:106px!important}
-}
-@media (min-width:621px) and (max-width:900px){
-  .navwrap{width:200px!important}
-  body.sidebar-collapsed .navwrap{width:72px!important}
-  main{width:calc(100% - 200px)!important;margin-left:200px!important}
-  body.sidebar-collapsed main{width:calc(100% - 72px)!important;margin-left:72px!important}
-  .top{padding-left:218px!important}
-  body.sidebar-collapsed .top{padding-left:90px!important}
-}
-@media (min-width:621px){
-  body.sidebar-collapsed .nav .pill{width:42px!important;height:42px!important;padding:0!important;justify-content:center!important}
-  body.sidebar-collapsed .nav .nav-label{display:none!important}
-  body.sidebar-collapsed .collapse-toggle{justify-content:center!important}
-  body.sidebar-collapsed .collapse-label{display:none!important}
-}
-
-/* Sidebar collapse is now triggered from the logo; no bottom control strip. */
-.brand-mark{appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;padding:0;color:inherit}
-.brand-mark:focus-visible{outline:2px solid #54243b;outline-offset:4px}
-.sidebar-bottom .collapse-toggle{display:flex!important}
-
-/* Restore the dedicated collapse/expand control at the bottom of the sidebar. */
-.brand-mark{cursor:default}
-.sidebar-bottom .collapse-toggle{display:flex!important}
-
-/* Replace the tiny arrow-only strip with the proper bottom Collapse/Expand button. */
-.sidebar-bottom .collapse-toggle{
- width:100%!important;height:auto!important;min-width:0!important;
- margin:8px 0 0!important;padding:10px 12px!important;
- display:flex!important;align-items:center!important;justify-content:flex-start!important;
- gap:11px!important;border:1px solid #d2cfc8!important;border-radius:9px!important;
- background:#f3f1ed!important;box-shadow:none!important;font-size:11px!important;
-}
-.sidebar-bottom .collapse-label{display:inline!important;font-size:11px!important;white-space:nowrap!important}
-.sidebar-bottom .collapse-chevron{
- display:inline-block!important;flex:0 0 8px!important;width:8px!important;height:8px!important;
- border-right:1.8px solid #54243b!important;border-bottom:1.8px solid #54243b!important;
- border-left:0!important;border-top:0!important;font-size:0!important;line-height:0!important;
- transform:rotate(135deg)!important;
-}
-body.sidebar-collapsed .sidebar-bottom .collapse-toggle{
- width:42px!important;height:42px!important;min-width:42px!important;
- margin:8px auto 0!important;padding:0!important;justify-content:center!important;
-}
-body.sidebar-collapsed .sidebar-bottom .collapse-label{display:none!important}
-body.sidebar-collapsed .sidebar-bottom .collapse-chevron{transform:rotate(-45deg)!important}
-@media(max-width:680px){.sidebar-bottom{display:none!important}}
